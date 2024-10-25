@@ -57,7 +57,7 @@ public class RoutingDataSourceAutoConfiguration implements ApplicationContextAwa
         routingDataSource.setTargetDataSources(routingDataSources);
         routingDataSource.setDefaultTargetDataSource(primaryDataSource);
         routingDataSource.setLenientFallback(!routingDataSourceProperties.getStrictMode());
-        logger.info("mybatis-mp-routing-datasource 初始化完成！！！！！！！！！！！！");
+        logger.info("多数据源 初始化完成！！！！！！！！！！！！");
         return routingDataSource;
     }
 
