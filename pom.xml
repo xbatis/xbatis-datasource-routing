@@ -8,7 +8,7 @@
         <artifactId>mybatis-mp</artifactId>
         <version>1.7.2</version>
     </parent>
-
+    <description>多数据库路由器 - 又名为多数据源（可以独立于mybatis-mp使用）</description>
     <artifactId>mybatis-mp-datasource-routing</artifactId>
     <version>1.0.0</version>
 
