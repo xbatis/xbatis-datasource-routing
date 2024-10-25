@@ -1,0 +1,2 @@
+cn.mybatis.mp.datasource.routing.RoutingDataSourceAutoConfiguration
+cn.mybatis.mp.datasource.routing.RoutingDataSourceAopAutoConfiguration

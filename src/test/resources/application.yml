@@ -1,0 +1,34 @@
+spring:
+  ds:
+    aop:
+      enabled: true
+      order: 1
+    p6spy: false
+    jdbc-config-decrypt: true
+    primary: master
+    routing:
+      master:
+        name: master
+        type: com.zaxxer.hikari.HikariDataSource
+        url: jdbc:h2:mem:hikariDB;INIT=RUNSCRIPT FROM 'classpath:db/hikariDB.sql'
+        hikari:
+          minimum-idle: 1
+          maximum-pool-size: 10
+      slave-0:
+        name: slave-0
+        type: com.alibaba.druid.pool.DruidDataSource
+        url: jdbc:h2:mem:druidDB;INIT=RUNSCRIPT FROM 'classpath:db/druidDB.sql'
+        hikari:
+          maximum-pool-size: 1
+      slave-1:
+        name: slave-1
+        type: com.alibaba.druid.pool.DruidDataSource
+        url: jdbc:h2:mem:druidDB;INIT=RUNSCRIPT FROM 'classpath:db/druidDB.sql'
+      slave-2:
+        name: slave-2
+        type: com.alibaba.druid.pool.DruidDataSource
+        url: jdbc:h2:mem:druidDB;INIT=RUNSCRIPT FROM 'classpath:db/druidDB.sql'
+
+mybatis:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
