@@ -20,11 +20,11 @@
     <parent>
         <groupId>cn.mybatis-mp</groupId>
         <artifactId>mybatis-mp</artifactId>
-        <version>1.7.7</version>
+        <version>1.8.0</version>
     </parent>
     <description>多数据库路由器 - 又名为多数据源（可以独立于mybatis-mp使用）</description>
     <artifactId>mybatis-mp-datasource-routing</artifactId>
-    <version>1.0.2</version>
+    <version>1.0.3</version>
 
     <dependencies>
 
