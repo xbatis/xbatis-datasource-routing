@@ -12,5 +12,5 @@
 #
 #
 
-cn.mybatis.mp.datasource.routing.RoutingDataSourceAutoConfiguration
-cn.mybatis.mp.datasource.routing.RoutingDataSourceAopAutoConfiguration
+cn.xbatis.datasource.routing.RoutingDataSourceAutoConfiguration
+cn.xbatis.datasource.routing.RoutingDataSourceAopAutoConfiguration

@@ -1,14 +1,14 @@
 # 动态数据源
 ```
-该模块从mybatis-mp独立而出，已经历多次迭代，可放心使用！！！
+该模块从xbatis独立而出，已经历多次迭代，可放心使用！！！
 ``` 
 ## 1.maven引入
 
 ```
 <dependency>
-    <groupId>cn.mybatis-mp</groupId>
-    <artifactId>mybatis-mp-datasource-routing</artifactId>
-    <version>1.0.3</version>
+    <groupId>cn.xbatis</groupId>
+    <artifactId>xbatis-datasource-routing</artifactId>
+    <version>1.0.5</version>
 </dependency>
 ```
 

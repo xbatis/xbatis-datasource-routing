@@ -18,13 +18,41 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
-        <groupId>cn.mybatis-mp</groupId>
-        <artifactId>mybatis-mp</artifactId>
-        <version>1.8.0</version>
+        <groupId>cn.xbatis</groupId>
+        <artifactId>xbatis</artifactId>
+        <version>1.8.1</version>
     </parent>
-    <description>多数据库路由器 - 又名为多数据源（可以独立于mybatis-mp使用）</description>
-    <artifactId>mybatis-mp-datasource-routing</artifactId>
-    <version>1.0.3</version>
+    <description>多数据库路由器 - 又名为多数据源（可以独立于xbatis使用）</description>
+    <artifactId>xbatis-datasource-routing</artifactId>
+    <version>1.0.5</version>
+
+    <issueManagement>
+        <system>Gitee Issue</system>
+        <url>https://gitee.com/xbatis/xbatis-datasource-routing/issues</url>
+    </issueManagement>
+
+    <scm>
+        <connection>https://gitee.com/xbatis/xbatis-datasource-routing.git</connection>
+        <url>https://gitee.com/xbatis/xbatis-datasource-routing</url>
+    </scm>
+
+    <licenses>
+        <license>
+            <name>Apache-2.0</name>
+            <url>https://gitee.com/xbatis/xbatis-datasource-routing/blob/master/LICENSE</url>
+        </license>
+    </licenses>
+
+    <developers>
+        <developer>
+            <name>Ai东</name>
+            <email>abc-127@live.cn</email>
+            <roles>
+                <role>Owner</role>
+            </roles>
+            <timezone>+8</timezone>
+        </developer>
+    </developers>
 
     <dependencies>
 
@@ -49,8 +77,8 @@
         </dependency>
 
         <dependency>
-            <groupId>cn.mybatis-mp</groupId>
-            <artifactId>mybatis-mp-spring-boot-starter</artifactId>
+            <groupId>cn.xbatis</groupId>
+            <artifactId>xbatis-spring-boot-starter</artifactId>
             <scope>test</scope>
         </dependency>
 
