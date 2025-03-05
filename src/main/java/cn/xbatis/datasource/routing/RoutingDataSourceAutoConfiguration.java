@@ -23,6 +23,7 @@ import io.seata.rm.datasource.xa.DataSourceProxyXA;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeansException;
+import org.springframework.beans.factory.config.BeanDefinition;
 import org.springframework.beans.factory.config.ConfigurableListableBeanFactory;
 import org.springframework.beans.factory.support.AbstractBeanDefinition;
 import org.springframework.beans.factory.support.BeanDefinitionBuilder;
@@ -39,12 +40,13 @@ import org.springframework.context.ApplicationContextAware;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
+import org.springframework.context.annotation.Role;
 import org.springframework.util.StringUtils;
 
 import javax.sql.DataSource;
 import java.util.*;
 
-
+@Role(BeanDefinition.ROLE_INFRASTRUCTURE)
 @Configuration(proxyBeanMethods = false)
 @EnableConfigurationProperties(RoutingDataSourceProperties.class)
 @AutoConfigureBefore(value = DataSourceAutoConfiguration.class)

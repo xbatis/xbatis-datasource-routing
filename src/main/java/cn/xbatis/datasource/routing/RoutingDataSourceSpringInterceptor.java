@@ -20,6 +20,8 @@ import org.aopalliance.intercept.MethodInvocation;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.config.BeanDefinition;
+import org.springframework.context.annotation.Role;
 import org.springframework.core.DefaultParameterNameDiscoverer;
 import org.springframework.core.ParameterNameDiscoverer;
 import org.springframework.expression.ExpressionParser;
@@ -33,6 +35,7 @@ import java.util.Objects;
 /**
  * 基于spring aopalliance的方法拦截器
  */
+@Role(BeanDefinition.ROLE_INFRASTRUCTURE)
 public class RoutingDataSourceSpringInterceptor implements MethodInterceptor {
 
     /**
