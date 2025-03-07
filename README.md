@@ -8,7 +8,7 @@
 <dependency>
     <groupId>cn.xbatis</groupId>
     <artifactId>xbatis-datasource-routing</artifactId>
-    <version>1.0.5</version>
+    <version>1.0.6-M1</version>
 </dependency>
 ```
 
