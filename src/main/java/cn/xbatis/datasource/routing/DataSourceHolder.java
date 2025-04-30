@@ -22,7 +22,7 @@ public class DataSourceHolder {
     private static final ThreadLocal<Deque<String>> TL = ThreadLocal.withInitial(ArrayDeque::new);
 
     public static void add(String type) {
-        TL.get().add(type);
+        TL.get().addLast(type);
     }
 
     public static String getCurrent() {
@@ -30,10 +30,10 @@ public class DataSourceHolder {
         if (list.isEmpty()) {
             return null;
         }
-        return list.getFirst();
+        return list.getLast();
     }
 
     public static void remove() {
-        TL.get().removeFirst();
+        TL.get().removeLast();
     }
 }
