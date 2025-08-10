@@ -15,6 +15,7 @@
 package cn.xbatis.datasource.routing.test.dao.impl;
 
 import cn.xbatis.core.mvc.impl.DaoImpl;
+import cn.xbatis.core.mybatis.mapper.context.Pager;
 import cn.xbatis.datasource.routing.DS;
 import cn.xbatis.datasource.routing.test.DO.Hikari;
 import cn.xbatis.datasource.routing.test.RoutingDataSourceType;
@@ -42,7 +43,8 @@ public class HikariDaoImpl extends DaoImpl<Hikari, Integer> implements HikariDao
 
     @Override
     public void test1() {
-        this.getById(1);
+        //this.getById(1);
+        getMapper().paging(Pager.of(10));
     }
 
     @Override

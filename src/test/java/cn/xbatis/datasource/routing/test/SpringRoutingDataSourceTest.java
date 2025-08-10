@@ -70,19 +70,19 @@ public class SpringRoutingDataSourceTest {
         hikariDao.test1();
         druidDao.test1();
 
-        hikariDao.test2();
-        druidDao.test2();
-
-
-        druidDao.test3();
-
-        hikariDao.test3();
-
-
-        hikariDao.test4();
-        druidDao.test4();
+//        hikariDao.test2();
+//        druidDao.test2();
 //
-        compositeDao.test4();
+//
+//        druidDao.test3();
+//
+//        hikariDao.test3();
+//
+//
+//        hikariDao.test4();
+//        druidDao.test4();
+////
+//        compositeDao.test4();
 
     }
 

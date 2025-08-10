@@ -17,6 +17,7 @@ package cn.xbatis.datasource.routing.test.DO;
 import cn.xbatis.db.annotations.Table;
 import cn.xbatis.db.annotations.TableId;
 
+
 @Table
 public class Druid {
 
@@ -25,4 +26,12 @@ public class Druid {
 
     private String druidName;
 
+
+    public Integer getId() {
+        return id;
+    }
+
+    public String getDruidName() {
+        return druidName;
+    }
 }

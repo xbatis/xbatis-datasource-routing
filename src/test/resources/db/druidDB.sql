@@ -17,3 +17,5 @@ create table if not exists druid(
    id INT PRIMARY KEY auto_increment,
    druid_name VARCHAR
 );
+
+insert into  druid values(1,'druid_name');

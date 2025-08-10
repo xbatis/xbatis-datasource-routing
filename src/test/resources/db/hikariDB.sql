@@ -16,3 +16,5 @@ create table Hikari(
       id INT PRIMARY KEY auto_increment,
       hikari_name VARCHAR
 );
+
+insert into  Hikari values(1,'hikari_name');
