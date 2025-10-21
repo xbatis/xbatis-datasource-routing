@@ -1,3 +1,6 @@
+# English wiki: [![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/xbatis/xbatis-datasource-routing)
+
+
 # 动态数据源
 ```
 该模块从xbatis独立而出，已经历多次迭代，可放心使用！！！
