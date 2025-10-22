@@ -20,11 +20,11 @@
     <parent>
         <groupId>cn.xbatis</groupId>
         <artifactId>xbatis</artifactId>
-        <version>1.8.7</version>
+        <version>1.9.1</version>
     </parent>
     <description>多数据库路由器 - 又名为多数据源（可以独立于xbatis使用）</description>
     <artifactId>xbatis-datasource-routing</artifactId>
-    <version>1.0.7</version>
+    <version>1.0.8</version>
 
     <issueManagement>
         <system>Gitee Issue</system>
