@@ -11,8 +11,8 @@
  *  See the License for the specific language governing permissions and limitations under the License.
  *
  */
-
-create table Hikari(
+drop table if exists Hikari;
+create table if not exists Hikari(
       id INT PRIMARY KEY auto_increment,
       hikari_name VARCHAR
 );

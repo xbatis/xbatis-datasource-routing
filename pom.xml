@@ -22,6 +22,8 @@
         <artifactId>xbatis</artifactId>
         <version>1.9.1</version>
     </parent>
+
+    <name>xbatis-datasource-routing</name>
     <description>多数据库路由器 - 又名为多数据源（可以独立于xbatis使用）</description>
     <artifactId>xbatis-datasource-routing</artifactId>
     <version>1.0.8</version>
