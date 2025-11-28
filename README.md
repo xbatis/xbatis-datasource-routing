@@ -313,3 +313,21 @@ spring:
           minimum-idle: 1
           maximum-pool-size: 10
 ```
+## 12：SQL分析与打印
+
+### 12.1 yaml 启用p6spy
+```yaml
+spring:
+  ds:
+    p6spy: false
+```
+### 12.2 maven引入p6spy依赖
+```xml
+<dependency>
+    <groupId>p6spy</groupId>
+    <artifactId>p6spy</artifactId>
+    <version>3.9.1</version>
+</dependency>
+```
+### 12.3 把spy.properties放到resources下
+> spy.properties 是 p6spy配置，参考[spy.properties](https://p6spy.readthedocs.io/en/latest/configandusage.html#common-property-file-settings)
