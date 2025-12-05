@@ -26,7 +26,7 @@
     <name>xbatis-datasource-routing</name>
     <description>多数据库路由器 - 又名为多数据源（可以独立于xbatis使用）</description>
     <artifactId>xbatis-datasource-routing</artifactId>
-    <version>1.0.8-springboot4</version>
+    <version>1.0.8-spring-boot4</version>
 
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
