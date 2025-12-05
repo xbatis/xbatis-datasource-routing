@@ -31,9 +31,6 @@
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
-        <xbatis-springboot-version>${parent.version}-spring-boot4</xbatis-springboot-version>
-        <logback.version>1.5.21</logback.version>
-        <slf4j.version>2.0.17</slf4j.version>
         <argLine>--add-opens java.base/java.lang=ALL-UNNAMED -Dfile.encoding=UTF-8</argLine>
     </properties>
 
@@ -70,34 +67,9 @@
             <dependency>
                 <groupId>cn.xbatis</groupId>
                 <artifactId>xbatis-spring-boot-parent</artifactId>
-                <version>${xbatis-springboot-version}</version>
+                <version>${parent.version}-spring-boot4</version>
                 <type>pom</type>
                 <scope>import</scope>
-            </dependency>
-
-            <!-- log -->
-            <dependency>
-                <groupId>org.slf4j</groupId>
-                <artifactId>slf4j-api</artifactId>
-                <version>${slf4j.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>org.slf4j</groupId>
-                <artifactId>jul-to-slf4j</artifactId>
-                <version>${slf4j.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>ch.qos.logback</groupId>
-                <artifactId>logback-classic</artifactId>
-                <version>${logback.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>ch.qos.logback</groupId>
-                <artifactId>logback-core</artifactId>
-                <version>${logback.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
