@@ -17,16 +17,24 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>cn.xbatis</groupId>
+        <artifactId>xbatis</artifactId>
+        <version>1.9.3-M2</version>
+    </parent>
 
     <name>xbatis-datasource-routing</name>
     <description>多数据库路由器 - 又名为多数据源（可以独立于xbatis使用）</description>
-    <groupId>cn.xbatis</groupId>
     <artifactId>xbatis-datasource-routing</artifactId>
     <version>1.0.8-springboot4</version>
 
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
+        <xbatis-springboot-version>${parent.version}-spring-boot4</xbatis-springboot-version>
+        <logback.version>1.5.21</logback.version>
+        <slf4j.version>2.0.17</slf4j.version>
+        <argLine>--add-opens java.base/java.lang=ALL-UNNAMED -Dfile.encoding=UTF-8</argLine>
     </properties>
 
     <issueManagement>
@@ -62,9 +70,34 @@
             <dependency>
                 <groupId>cn.xbatis</groupId>
                 <artifactId>xbatis-spring-boot-parent</artifactId>
-                <version>1.9.3-M2-spring-boot4</version>
+                <version>${xbatis-springboot-version}</version>
                 <type>pom</type>
                 <scope>import</scope>
+            </dependency>
+
+            <!-- log -->
+            <dependency>
+                <groupId>org.slf4j</groupId>
+                <artifactId>slf4j-api</artifactId>
+                <version>${slf4j.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.slf4j</groupId>
+                <artifactId>jul-to-slf4j</artifactId>
+                <version>${slf4j.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>ch.qos.logback</groupId>
+                <artifactId>logback-classic</artifactId>
+                <version>${logback.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>ch.qos.logback</groupId>
+                <artifactId>logback-core</artifactId>
+                <version>${logback.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
@@ -183,4 +216,18 @@
         </dependency>
     </dependencies>
 
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.11.0</version>
+                <configuration>
+                    <parameters>true</parameters>
+                    <source>${maven.compiler.source}</source>
+                    <target>${maven.compiler.target}</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 </project>
