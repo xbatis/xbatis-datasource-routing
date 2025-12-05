@@ -313,8 +313,8 @@ spring:
           minimum-idle: 1
           maximum-pool-size: 10
 ```
-## 12：SQL分析与打印
 
+## 12：SQL分析与打印
 ### 12.1 yaml 启用p6spy
 ```yaml
 spring:
@@ -331,3 +331,4 @@ spring:
 ```
 ### 12.3 把spy.properties放到resources下
 > spy.properties 是 p6spy配置，参考[spy.properties](https://p6spy.readthedocs.io/en/latest/configandusage.html#common-property-file-settings)
+
