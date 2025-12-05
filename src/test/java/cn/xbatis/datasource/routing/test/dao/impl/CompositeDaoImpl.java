@@ -19,19 +19,18 @@ import cn.xbatis.datasource.routing.test.RoutingDataSourceType;
 import cn.xbatis.datasource.routing.test.dao.CompositeDao;
 import cn.xbatis.datasource.routing.test.dao.DruidDao;
 import cn.xbatis.datasource.routing.test.dao.HikariDao;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
-
-import javax.annotation.Resource;
 
 @Repository
 @DS(RoutingDataSourceType.DRUID)
 public class CompositeDaoImpl implements CompositeDao {
 
-    @Resource
+    @Autowired
     private HikariDao hikariDao;
 
-    @Resource
+    @Autowired
     private DruidDao druidDao;
 
     @Transactional

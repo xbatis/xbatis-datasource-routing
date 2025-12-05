@@ -20,7 +20,7 @@ import cn.xbatis.datasource.routing.dataSourceConfig.HikariConfig;
 
 import java.util.Properties;
 
-public class DataSourceProperties extends org.springframework.boot.autoconfigure.jdbc.DataSourceProperties {
+public class DataSourceProperties extends org.springframework.boot.jdbc.autoconfigure.DataSourceProperties {
 
     /**
      * 配置的类型

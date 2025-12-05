@@ -27,14 +27,13 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mybatis.spring.annotation.MapperScan;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
-
-import javax.annotation.Resource;
 
 import static org.junit.jupiter.api.Assertions.assertFalse;
 
@@ -49,19 +48,19 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 @ExtendWith(SpringExtension.class)
 public class SpringRoutingDataSourceTest {
 
-    @Resource
+    @Autowired
     private DruidDao druidDao;
 
-    @Resource
+    @Autowired
     private HikariDao hikariDao;
 
-    @Resource
+    @Autowired
     private CompositeDao compositeDao;
 
-    @Resource
+    @Autowired
     private SpringRoutingDataSource springRoutingDataSource;
 
-    @Resource
+    @Autowired
     private DefaultTestDao defaultTestDao;
 
     @Test
