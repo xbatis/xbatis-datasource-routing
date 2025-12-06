@@ -33,6 +33,7 @@
         <maven.compiler.target>17</maven.compiler.target>
         <argLine>--add-opens java.base/java.lang=ALL-UNNAMED -Dfile.encoding=UTF-8</argLine>
 
+        <xbatis.version>1.9.3-M3</xbatis.version>
         <xbatis-spring-boot-starter.version>1.9.3-M3-spring-boot4</xbatis-spring-boot-starter.version>
     </properties>
 
