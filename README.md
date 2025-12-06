@@ -5,13 +5,23 @@
 ```
 该模块从xbatis独立而出，已经历多次迭代，可放心使用！！！
 ``` 
-## 1.maven引入
+## 1. springboot3 maven引入
 
 ```
 <dependency>
     <groupId>cn.xbatis</groupId>
     <artifactId>xbatis-datasource-routing</artifactId>
     <version>1.0.8</version>
+</dependency>
+```
+
+## 2. springboot4 maven引入
+
+```
+<dependency>
+    <groupId>cn.xbatis</groupId>
+    <artifactId>xbatis-datasource-routing</artifactId>
+    <version>1.0.8-spring-boot4</version>
 </dependency>
 ```
 
