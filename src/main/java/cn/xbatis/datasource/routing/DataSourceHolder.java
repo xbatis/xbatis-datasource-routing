@@ -23,7 +23,7 @@ import java.util.concurrent.Callable;
  */
 public class DataSourceHolder {
 
-    private static final ThreadLocal<Deque<String>> TL = ThreadLocal.withInitial(ArrayDeque::new);
+    private static final ThreadLocal<Deque<String>> TL = new ThreadLocal<>();
 
     /**
      * 追加/切换数据源
@@ -32,7 +32,12 @@ public class DataSourceHolder {
      * @param type 数据源分类
      */
     public static void add(String type) {
-        TL.get().addLast(type);
+        Deque<String> list = TL.get();
+        if (list == null) {
+            list = new ArrayDeque<>();
+            TL.set(list);
+        }
+        list.addLast(type);
     }
 
     /**
@@ -41,7 +46,7 @@ public class DataSourceHolder {
      */
     public static String getCurrent() {
         Deque<String> list = TL.get();
-        if (list.isEmpty()) {
+        if (list == null || list.isEmpty()) {
             return null;
         }
         return list.getLast();
@@ -51,7 +56,13 @@ public class DataSourceHolder {
      * 移除最近追加/切换的数据源
      */
     public static void remove() {
-        TL.get().removeLast();
+        Deque<String> deque = TL.get();
+        if (deque != null) {
+            deque.removeLast();
+            if (deque.isEmpty()) {
+                TL.remove();
+            }
+        }
     }
 
     /**
