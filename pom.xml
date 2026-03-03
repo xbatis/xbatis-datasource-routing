@@ -20,17 +20,17 @@
     <parent>
         <groupId>cn.xbatis</groupId>
         <artifactId>xbatis</artifactId>
-        <version>1.9.5</version>
+        <version>1.9.8</version>
     </parent>
 
     <name>xbatis-datasource-routing</name>
     <description>多数据库路由器 - 又名为多数据源（可以独立于xbatis使用）</description>
     <artifactId>xbatis-datasource-routing</artifactId>
-    <version>1.1.0</version>
+    <version>1.1.1</version>
 
 
     <properties>
-        <xbatis-spring-boot-starter.version>1.9.5</xbatis-spring-boot-starter.version>
+        <xbatis-spring-boot-starter.version>1.9.8</xbatis-spring-boot-starter.version>
         <!-- 连接池 -->
         <p6spy.version>3.9.1</p6spy.version>
         <beecp.verion>5.2.1</beecp.verion>
