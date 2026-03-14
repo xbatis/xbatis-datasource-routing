@@ -19,8 +19,8 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>cn.xbatis</groupId>
-        <artifactId>xbatis</artifactId>
-        <version>1.9.8</version>
+        <artifactId>xbatis-parent</artifactId>
+        <version>1.9.9-M1</version>
     </parent>
 
     <name>xbatis-datasource-routing</name>
@@ -30,12 +30,10 @@
 
 
     <properties>
-        <xbatis-spring-boot-starter.version>1.9.8</xbatis-spring-boot-starter.version>
+        <xbatis-spring-boot-starter.version>1.9.9-M1</xbatis-spring-boot-starter.version>
         <!-- 连接池 -->
-        <p6spy.version>3.9.1</p6spy.version>
         <beecp.verion>5.2.1</beecp.verion>
         <druid.version>1.2.27</druid.version>
-
         <seata.version>2.0.0</seata.version>
     </properties>
 
