@@ -25,7 +25,7 @@ public interface SuperDao<T> {
 
     MybatisMapper<T> getMapper();
 
-    default T getById2(Serializable id){
+    default T getById2(Serializable id) {
         return getMapper().getById(id);
     }
 }

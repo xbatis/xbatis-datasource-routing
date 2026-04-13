@@ -17,8 +17,8 @@ package cn.xbatis.datasource.routing.test.dao.impl;
 import cn.xbatis.core.mvc.impl.DaoImpl;
 import cn.xbatis.core.mybatis.mapper.context.Pager;
 import cn.xbatis.core.sql.executor.chain.QueryChain;
-import cn.xbatis.datasource.routing.test.DO.Druid;
 import cn.xbatis.datasource.routing.DS;
+import cn.xbatis.datasource.routing.test.DO.Druid;
 import cn.xbatis.datasource.routing.test.RoutingDataSourceType;
 import cn.xbatis.datasource.routing.test.dao.DruidDao;
 import cn.xbatis.datasource.routing.test.mapper.DruidMapper;
@@ -45,7 +45,7 @@ public class DruidDaoImpl extends DaoImpl<Druid, Integer> implements DruidDao {
     public void test1() {
         //this.getById(1);
         getMapper().paging(Pager.of(10));
-        QueryChain.of(getMapper()).and(Druid::getDruidName,c->c.hour().eq(1));
+        QueryChain.of(getMapper()).and(Druid::getDruidName, c -> c.hour().eq(1));
     }
 
     @Override

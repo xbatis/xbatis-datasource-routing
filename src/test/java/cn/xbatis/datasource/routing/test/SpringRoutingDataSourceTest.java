@@ -15,9 +15,9 @@
 package cn.xbatis.datasource.routing.test;
 
 
-import cn.xbatis.datasource.routing.test.dao.DefaultTestDao;
 import cn.xbatis.datasource.routing.SpringRoutingDataSource;
 import cn.xbatis.datasource.routing.test.dao.CompositeDao;
+import cn.xbatis.datasource.routing.test.dao.DefaultTestDao;
 import cn.xbatis.datasource.routing.test.dao.DruidDao;
 import cn.xbatis.datasource.routing.test.dao.HikariDao;
 import com.zaxxer.hikari.HikariDataSource;
