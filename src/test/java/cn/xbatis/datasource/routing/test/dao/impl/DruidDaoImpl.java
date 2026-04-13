@@ -45,7 +45,7 @@ public class DruidDaoImpl extends DaoImpl<Druid, Integer> implements DruidDao {
     public void test1() {
         //this.getById(1);
         getMapper().paging(Pager.of(10));
-        QueryChain.of(getMapper()).and(Druid::getDruidName,c->c.hour().eq(1));
+        QueryChain.of(getMapper()).and(Druid::getDruidName, c -> c.hour().eq(1));
     }
 
     @Override
