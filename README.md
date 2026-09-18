@@ -11,11 +11,9 @@
 <dependency>
     <groupId>cn.xbatis</groupId>
     <artifactId>xbatis-datasource-routing</artifactId>
-    <version>1.1.3</version>
+    <version>1.1.5</version>
 </dependency>
 ```
-
-> 记得 加上 @EnableAspectJAutoProxy 启用aop
 
 ## 2.配置数据源
 
