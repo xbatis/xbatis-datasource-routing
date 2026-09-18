@@ -57,6 +57,10 @@ public class RoutingDataSourceAopProperties {
         this.order = order;
     }
 
+    public void setMapper(Boolean mapper) {
+        this.mapper = mapper;
+    }
+
     public Boolean getMapper() {
         return mapper;
     }
