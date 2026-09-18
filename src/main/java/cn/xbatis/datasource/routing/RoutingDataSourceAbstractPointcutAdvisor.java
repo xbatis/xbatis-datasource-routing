@@ -14,65 +14,80 @@
 
 package cn.xbatis.datasource.routing;
 
-import cn.xbatis.core.mybatis.mapper.BasicMapper;
-import cn.xbatis.core.mybatis.mapper.MybatisMapper;
 import org.aopalliance.aop.Advice;
+import org.springframework.aop.ClassFilter;
 import org.springframework.aop.Pointcut;
 import org.springframework.aop.support.AbstractPointcutAdvisor;
 import org.springframework.aop.support.AopUtils;
+import org.springframework.aop.support.ClassFilters;
 import org.springframework.aop.support.StaticMethodMatcherPointcut;
 import org.springframework.core.annotation.AnnotatedElementUtils;
 
 import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
+import java.util.Arrays;
 
 public class RoutingDataSourceAbstractPointcutAdvisor extends AbstractPointcutAdvisor {
 
-    private final Pointcut pointcut = new StaticMethodMatcherPointcut() {
-        @Override
-        public boolean matches(Method method, Class<?> targetClass) {
+    private final ClassFilter classFilter;
 
-            boolean proxyClass = Proxy.isProxyClass(targetClass);
+    private final Pointcut pointcut;
 
-            if (proxyClass) {
-                if (mapper) {
-                    if (!MybatisMapper.class.isAssignableFrom(targetClass) && !BasicMapper.class.isAssignableFrom(targetClass)) {
-                        return false;
-                    }
-                    if (method.getDeclaringClass().getName().startsWith("cn.xbatis.core.mybatis.mapper")) {
-                        //xbatis的方法 不拦截
-                        return false;
-                    }
-                } else {
-                    return false;
-                }
-            }
-            if (methodMatch(method)) {
-                return true;
-            }
 
-            if (proxyClass) {
-                return false;
-            }
-
-            Method specificMethod = AopUtils.getMostSpecificMethod(method, targetClass);
-
-            if (methodMatch(specificMethod)) {
-                return true;
-            }
-            if (method.getDeclaringClass().isAnnotationPresent(DS.class)) {
-                return true;
-            }
-            return targetClass.isAnnotationPresent(DS.class);
-        }
-    };
-    private boolean mapper;
     private final RoutingDataSourceSpringInterceptor interceptor;
 
     public RoutingDataSourceAbstractPointcutAdvisor(RoutingDataSourceSpringInterceptor routingDataSourceSpringInterceptor, RoutingDataSourceAopProperties routingDataSourceAopProperties) {
         this.interceptor = routingDataSourceSpringInterceptor;
         this.setOrder(routingDataSourceAopProperties.getOrder());
-        this.mapper = routingDataSourceAopProperties.getMapper();
+
+        if (routingDataSourceAopProperties.getBasePackages() == null || routingDataSourceAopProperties.getBasePackages().length == 0) {
+            this.classFilter = clazz -> {
+                Package p = clazz.getPackage();
+                if (p == null) {
+                    return true;
+                }
+                String packageName = p.getName();
+                return !packageName.startsWith("org.springframework");
+            };
+        } else {
+            ClassFilter[] classFilters = Arrays.stream(routingDataSourceAopProperties.getBasePackages())
+                    .map(i -> new AntClassFilter(i))
+                    .toArray(ClassFilter[]::new);
+            this.classFilter = ClassFilters.union(classFilters);
+        }
+        this.pointcut = new StaticMethodMatcherPointcut() {
+
+            private final ClassFilter FILTER = ClassFilters.union(classFilter, clazz -> Proxy.isProxyClass(clazz));
+
+            @Override
+            public ClassFilter getClassFilter() {
+                return FILTER;
+            }
+
+            @Override
+            public boolean matches(Method method, Class<?> targetClass) {
+                boolean proxyClass = Proxy.isProxyClass(targetClass);
+
+                if (proxyClass && !classFilter.matches(method.getDeclaringClass())) {
+                    return false;
+                }
+
+                if (methodMatch(method)) {
+                    return true;
+                }
+
+                Method specificMethod = AopUtils.getMostSpecificMethod(method, targetClass);
+
+                if (methodMatch(specificMethod)) {
+                    return true;
+                }
+
+                if (method.getDeclaringClass().isAnnotationPresent(DS.class)) {
+                    return true;
+                }
+                return targetClass.isAnnotationPresent(DS.class);
+            }
+        };
     }
 
     private boolean methodMatch(Method method) {

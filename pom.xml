@@ -95,12 +95,6 @@
 
         <dependency>
             <groupId>cn.xbatis</groupId>
-            <artifactId>xbatis-core</artifactId>
-            <optional>true</optional>
-        </dependency>
-
-        <dependency>
-            <groupId>cn.xbatis</groupId>
             <artifactId>xbatis-spring-boot-starter</artifactId>
             <scope>test</scope>
         </dependency>

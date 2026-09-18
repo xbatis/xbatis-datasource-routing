@@ -32,9 +32,9 @@ public class RoutingDataSourceAopProperties {
     private Boolean enabled = true;
 
     /**
-     * 是否拦截mapper，目前只支持xbatis的
+     * 扫描类的路径
      */
-    private Boolean mapper = false;
+    private String[] basePackages;
 
     /**
      * aop order
@@ -57,11 +57,11 @@ public class RoutingDataSourceAopProperties {
         this.order = order;
     }
 
-    public Boolean getMapper() {
-        return mapper;
+    public String[] getBasePackages() {
+        return basePackages;
     }
 
-    public void setMapper(Boolean mapper) {
-        this.mapper = mapper;
+    public void setBasePackages(String[] basePackages) {
+        this.basePackages = basePackages;
     }
 }
