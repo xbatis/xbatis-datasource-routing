@@ -68,7 +68,7 @@ public class RoutingDataSourceAbstractPointcutAdvisor extends AbstractPointcutAd
             public boolean matches(Method method, Class<?> targetClass) {
                 boolean proxyClass = Proxy.isProxyClass(targetClass);
 
-                if (!classFilter.matches(proxyClass ? method.getDeclaringClass() : targetClass)) {
+                if (proxyClass && !classFilter.matches(method.getDeclaringClass())) {
                     return false;
                 }
 
