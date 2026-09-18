@@ -14,6 +14,8 @@
 
 package cn.xbatis.datasource.routing;
 
+import cn.xbatis.core.mybatis.mapper.BasicMapper;
+import cn.xbatis.core.mybatis.mapper.MybatisMapper;
 import org.aopalliance.aop.Advice;
 import org.springframework.aop.Pointcut;
 import org.springframework.aop.support.AbstractPointcutAdvisor;
@@ -29,12 +31,30 @@ public class RoutingDataSourceAbstractPointcutAdvisor extends AbstractPointcutAd
     private final Pointcut pointcut = new StaticMethodMatcherPointcut() {
         @Override
         public boolean matches(Method method, Class<?> targetClass) {
-            if (Proxy.isProxyClass(targetClass)) {
-                return false;
+
+            boolean proxyClass = Proxy.isProxyClass(targetClass);
+
+            if (proxyClass) {
+                if (mapper) {
+                    if (!MybatisMapper.class.isAssignableFrom(targetClass) && !BasicMapper.class.isAssignableFrom(targetClass)) {
+                        return false;
+                    }
+                    if (method.getDeclaringClass().getName().startsWith("cn.xbatis.core.mybatis.mapper")) {
+                        //xbatis的方法 不拦截
+                        return false;
+                    }
+                } else {
+                    return false;
+                }
             }
             if (methodMatch(method)) {
                 return true;
             }
+
+            if (proxyClass) {
+                return false;
+            }
+
             Method specificMethod = AopUtils.getMostSpecificMethod(method, targetClass);
 
             if (methodMatch(specificMethod)) {
@@ -46,10 +66,13 @@ public class RoutingDataSourceAbstractPointcutAdvisor extends AbstractPointcutAd
             return targetClass.isAnnotationPresent(DS.class);
         }
     };
+    private boolean mapper;
     private final RoutingDataSourceSpringInterceptor interceptor;
 
-    public RoutingDataSourceAbstractPointcutAdvisor(RoutingDataSourceSpringInterceptor routingDataSourceSpringInterceptor) {
+    public RoutingDataSourceAbstractPointcutAdvisor(RoutingDataSourceSpringInterceptor routingDataSourceSpringInterceptor, RoutingDataSourceAopProperties routingDataSourceAopProperties) {
         this.interceptor = routingDataSourceSpringInterceptor;
+        this.setOrder(routingDataSourceAopProperties.getOrder());
+        this.mapper = routingDataSourceAopProperties.getMapper();
     }
 
     private boolean methodMatch(Method method) {
