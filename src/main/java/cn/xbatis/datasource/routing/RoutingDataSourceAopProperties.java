@@ -32,6 +32,11 @@ public class RoutingDataSourceAopProperties {
     private Boolean enabled = true;
 
     /**
+     * 是否拦截mapper，目前只支持xbatis的
+     */
+    private Boolean mapper = false;
+
+    /**
      * aop order
      */
     private int order = Ordered.HIGHEST_PRECEDENCE;
@@ -50,5 +55,9 @@ public class RoutingDataSourceAopProperties {
 
     public void setOrder(int order) {
         this.order = order;
+    }
+
+    public Boolean getMapper() {
+        return mapper;
     }
 }

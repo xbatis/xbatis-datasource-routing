@@ -39,8 +39,6 @@ public class RoutingDataSourceAopAutoConfiguration {
     @Bean
     @Role(BeanDefinition.ROLE_INFRASTRUCTURE)
     RoutingDataSourceAbstractPointcutAdvisor routingDataSourceAbstractPointcutAdvisor(RoutingDataSourceAopProperties routingDataSourceAopProperties, RoutingDataSourceSpringInterceptor routingDataSourceSpringInterceptor) {
-        RoutingDataSourceAbstractPointcutAdvisor pointcutAdvisor = new RoutingDataSourceAbstractPointcutAdvisor(routingDataSourceSpringInterceptor);
-        pointcutAdvisor.setOrder(routingDataSourceAopProperties.getOrder());
-        return pointcutAdvisor;
+        return new RoutingDataSourceAbstractPointcutAdvisor(routingDataSourceSpringInterceptor, routingDataSourceAopProperties);
     }
 }
