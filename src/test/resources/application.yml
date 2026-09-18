@@ -3,7 +3,7 @@ spring:
     aop:
       enabled: true
       order: 1
-      basePackages: cn.xbatis.datasource.**.dao.**
+      basePackages: cn.xbatis.datasource
     p6spy: false
     jdbc-config-decrypt: true
     primary: master
