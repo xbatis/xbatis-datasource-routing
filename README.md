@@ -1,7 +1,7 @@
 # English wiki: [![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/xbatis/xbatis-datasource-routing)
 
 
-# 动态数据源
+# 动态数据源(支持mybatis mapper 接口)
 ```
 该模块从xbatis独立而出，已经历多次迭代，可放心使用！！！
 ``` 
@@ -11,7 +11,7 @@
 <dependency>
     <groupId>cn.xbatis</groupId>
     <artifactId>xbatis-datasource-routing</artifactId>
-    <version>1.1.3</version>
+    <version>1.1.5</version>
 </dependency>
 ```
 
@@ -21,11 +21,9 @@
 <dependency>
     <groupId>cn.xbatis</groupId>
     <artifactId>xbatis-datasource-routing</artifactId>
-    <version>1.1.3-spring-boot4</version>
+    <version>1.1.5-spring-boot4</version>
 </dependency>
 ```
-
-> 记得 加上 @EnableAspectJAutoProxy 启用aop
 
 ## 2.配置数据源
 
