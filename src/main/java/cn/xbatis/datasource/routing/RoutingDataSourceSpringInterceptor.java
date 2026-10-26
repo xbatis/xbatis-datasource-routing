@@ -52,7 +52,7 @@ public class RoutingDataSourceSpringInterceptor implements MethodInterceptor {
         String key = "{'slave-'+(#i % 2)}";
         StandardEvaluationContext context = new StandardEvaluationContext();
         context.setVariable("i", 1);
-        String str = parser.parseExpression(key.substring(1, key.length() - 1)).getValue(context, String.class);
+        String str = parser.parseExpression(key).getValue(context, String.class);
         System.out.println(str);
     }
 
