@@ -42,7 +42,7 @@ public class AntClassFilter implements ClassFilter {
         }
         String packageName = p.getName();
         if (!isPattern) {
-            return packageName.startsWith(pattern);
+            return packageName.equals(pattern) || packageName.startsWith(pattern + ".");
         }
         return MATCHER.match(pattern, packageName);
     }
