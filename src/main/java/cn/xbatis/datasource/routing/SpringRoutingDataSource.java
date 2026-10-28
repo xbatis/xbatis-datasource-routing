@@ -103,14 +103,14 @@ public class SpringRoutingDataSource extends AbstractRoutingDataSource {
         }
         String groupName = getGroupName(key);
         if (Objects.nonNull(groupName)) {
-            GroupDataSource groupDataSource = (GroupDataSource) dataSourceMap.get(key);
+            GroupDataSource groupDataSource = (GroupDataSource) dataSourceMap.get(groupName);
             if (Objects.isNull(groupDataSource)) {
                 List<DataSource> list = new ArrayList<>();
                 list.add(dataSource);
                 groupDataSource = new GroupDataSource(list);
                 dataSourceMap.put(groupName, groupDataSource);
             } else {
-                groupDataSource.getDelegateList().add(groupDataSource);
+                groupDataSource.getDelegateList().add(dataSource);
             }
         }
         dataSourceMap.put(key, dataSource);
