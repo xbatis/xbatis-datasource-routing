@@ -11,7 +11,7 @@
 <dependency>
     <groupId>cn.xbatis</groupId>
     <artifactId>xbatis-datasource-routing</artifactId>
-    <version>1.1.5</version>
+    <version>1.1.6</version>
 </dependency>
 ```
 
@@ -21,7 +21,7 @@
 <dependency>
     <groupId>cn.xbatis</groupId>
     <artifactId>xbatis-datasource-routing</artifactId>
-    <version>1.1.5-spring-boot4</version>
+    <version>1.1.6-spring-boot4</version>
 </dependency>
 ```
 
