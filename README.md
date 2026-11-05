@@ -11,7 +11,7 @@
 <dependency>
     <groupId>cn.xbatis</groupId>
     <artifactId>xbatis-datasource-routing</artifactId>
-    <version>1.1.5</version>
+    <version>1.1.6</version>
 </dependency>
 ```
 
